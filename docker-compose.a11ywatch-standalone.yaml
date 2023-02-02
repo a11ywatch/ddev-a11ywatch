@@ -1,5 +1,5 @@
-#ddev-generated
-# Simple template to demonstrate ddev-a11ywatch-standalone
+version: '3.6'
+
 services:
   ddev-a11ywatch-standalone:
     container_name: ddev-${DDEV_SITENAME}-a11ywatch
@@ -7,8 +7,8 @@ services:
     image: a11ywatch/a11ywatch:${A11YWATCH_IMAGE:-latest}
     networks: [default, ddev_default]
     expose:
-      - "3280"
-      - "50050"
+      - 3280
+      - 50050
     environment:
       - COMPUTER_VISION_ENDPOINT=${COMPUTER_VISION_ENDPOINT:-""}
       - COMPUTER_VISION_SUBSCRIPTION_KEY=${COMPUTER_VISION_SUBSCRIPTION_KEY:-""}
@@ -19,8 +19,4 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: $DDEV_APPROOT
     volumes:
-      - a11ywatch:/usr/share/a11ywatch/data
       - ".:/mnt/ddev_config"
-
-volumes:
-  a11ywatch:

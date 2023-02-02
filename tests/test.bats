@@ -36,6 +36,7 @@ teardown() {
   echo "# ddev get a11ywatch/ddev-a11ywatch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get a11ywatch/ddev-a11ywatch
   ddev restart >/dev/null
-  # verify add-on scan
-  ddev exec "curl --location --request POST 'https://test-ddev-a11ywatch-standalone.ddev.site:3280/api/scan' --header 'Content-Type: application/json' --data-raw '{ 'url': 'https://a11ywatch.com' }'"
+  ddev exec "curl --location --request POST 'https://test-ddev-a11ywatch-standalone.ddev.site:3280/api/scan' --header 'Content-Type: application/json' --data-raw '{ \"url\": \"https://a11ywatch.com\" }'"
+  # verify add-on crawl
+  ddev exec "curl --location --request POST 'https://test-ddev-a11ywatch-standalone.ddev.site:3280/api/crawl' --header 'Content-Type: application/json' --data-raw '{ \"url\": \"https://a11ywatch.com\" }'"
 }
