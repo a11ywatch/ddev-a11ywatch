@@ -1,4 +1,4 @@
-name: addon-template
+name: ddev-a11ywatch-standalone
 
 # pre_install_actions - list of actions to run before installing the addon.
 # Examples would be removing an extraneous docker volume,
@@ -7,11 +7,13 @@ name: addon-template
 pre_install_actions:
   # Actions with #ddev-nodisplay will not show the execution of the action, but may show their output
 # - |
-  # #ddev-nodisplay
-  # if [ "$(arch)" = "arm64" -o "$(arch)" = "aarch64" ]; then
-    # echo "This package does not work on arm64 machines";
-    # exit 1;
-  #fi
+#   #ddev-nodisplay
+#   if [[ "$OSTYPE" == "darwin"* ]]; then
+#       if [ "$(arch)" = "arm64" -o "$(arch)" = "aarch64" ]; then
+#           # create .env to set target platform required for chip specific image
+#           echo "A11YWATCH_IMAGE=darwin" > .env
+#       fi
+#   fi
 
 # - "docker volume rm ddev-${DDEV_PROJECT}_solr 2>/dev/null || true"
 #- |
@@ -50,7 +52,7 @@ pre_install_actions:
 # if it hasn't been modified by the user.
 # DDEV environment variables can be interpolated into these filenames
 project_files:
-- docker-compose.addon-template.yaml
+- docker-compose.a11ywatch-standalone.yaml
 # - extra_files/
 # - somefile.sh
 
@@ -62,9 +64,15 @@ global_files:
 
 # DDEV environment variables can be interpolated into these actions
 post_install_actions:
-# - chmod +x ~/.ddev/commands/web/somecommand
-# - touch somefile.${GOOS}.${DDEV_WEBSERVER}
-# - perl -pi -e 's/oldstring/newstring/g' docker-compose.addon-template.yaml
+  # Actions with #ddev-nodisplay will not show the execution of the action, but may show their output
+- |
+  #ddev-nodisplay
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+      if [ "$(arch)" = "arm64" -o "$(arch)" = "aarch64" ]; then
+          # create .env to set target platform required for chip specific image
+          export A11YWATCH_IMAGE=darwin
+      fi
+  fi
 
 # Advanced usage - yaml files can be read in and then used as go template actions
 # in pre_install_actions and post_install_actions
