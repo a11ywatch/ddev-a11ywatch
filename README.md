@@ -6,7 +6,7 @@ This repository allows you to quickly install the warp speed accessibility and v
 
 ## Installation
 
-1. `ddev get a11ywatch/ddev-a11ywatch && ddev restart`
+1. `ddev get a11ywatch/ddev-a11ywatch`
 2. `ddev restart`
 
 ## Explanation
