@@ -2,12 +2,23 @@
 
 ## What is this?
 
-This repository allows you to quickly install the warp speed accessibility and vast coverage tool [A11yWatch Lite](https://github.com/a11ywatch/a11ywatch) into a [Ddev](https://ddev.readthedocs.io) project using just `ddev get a11ywatch/ddev-a11ywatch`.
+This repository allows you to quickly install the warp speed accessibility and vast coverage tool [A11yWatch Lite](https://github.com/a11ywatch/a11ywatch) into a [Ddev](https://ddev.readthedocs.io) project using the instructions below.
 
 ## Installation
 
-1. `ddev get a11ywatch/ddev-a11ywatch`
-2. `ddev restart`
+For DDEV v1.23.5 or above run
+
+```sh
+ddev add-on get a11ywatch/ddev-a11ywatch
+```
+
+For earlier versions of DDEV run
+
+```sh
+ddev get a11ywatch/ddev-a11ywatch
+```
+
+Afterwards, run `ddev restart`
 
 ## Explanation
 
