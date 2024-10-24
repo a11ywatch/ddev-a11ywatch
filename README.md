@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This repository allows you to quickly install the warp speed accessibility and vast coverage tool [A11yWatch Lite](https://github.com/a11ywatch/a11ywatch) into a [Ddev](https://ddev.readthedocs.io) project using the instnructions below.
+This repository allows you to quickly install the warp speed accessibility and vast coverage tool [A11yWatch Lite](https://github.com/a11ywatch/a11ywatch) into a [Ddev](https://ddev.readthedocs.io) project using the instructions below.
 
 ## Installation
 
